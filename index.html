@@ -21,13 +21,13 @@
     <header id="header" class="fixed-top ">
         <div class="container-fluid d-flex align-items-center justify-content-between">
 
-            <h1 class="logo"><a href="home.html">TravelBlog</a></h1>
+            <h1 class="logo"><a href="index.html">TravelBlog</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
-                    <li class="active"><a href="home.html">Home</a></li>
+                    <li class="active"><a href="index.html">Home</a></li>
 
                     <li><a href="./views/blog.html">Blog</a></li>
                     <li><a href="./views/authors.html">Authors</a></li>
@@ -93,12 +93,10 @@
                                         <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                                     </div>
                                     <select class="custom-select" style="max-width: 120px;">
-                                        <option selected="">+971</option>
-                                        <option value="1">+972</option>
-                                        <option value="2">+198</option>
-                                        <option value="3">+701</option>
+                                        <option selected="">+91</option>
+
                                     </select>
-                                    <input name="" class="form-control" placeholder="Phone number" type="text">
+                                    <input name="number" class="form-control" placeholder="Phone number" type="text" id="number" onsubmit="return validatePhone()">
                                 </div>
                                 <!-- form-group// -->
                                 <div class="form-group input-group">
@@ -120,7 +118,7 @@
                                     </button>
                                 </div>
                                 <!-- form-group// -->
-                                <p class="text-center">Have an account? <a href="">Log In</a> </p>
+                                <p href="#login" class="text-center">Have an account? <a href="#login">Log In</a> </p>
                             </form>
                         </article>
                     </div>
@@ -152,7 +150,7 @@
                             <p class="divider-text">
                                 <span class="bg-light">OR</span>
                             </p>
-                            <form>
+                            <form id="login">
 
                                 <div class="form-group input-group">
                                     <div class="input-group-prepend">
@@ -262,7 +260,19 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
     </script>
-    <script src="js/app.js"></script>
+    <script>
+        const validatePhone = () => {
+            const phone = document.getElementById(number);
+            if (phone.value == "") {
+                document.getElementById("phone-alert").innerHTML = "**Enter phomne number";
+            }
+            if (phone.value != "/^[0-9]\d{9}") {
+                document.getElementById("phone-alert").innerHTML =
+                    "**should contain 10 digits";
+
+            }
+        };
+    </script>
 </body>
 
 </html>
